@@ -1,7 +1,7 @@
 
 package com.app.portfolio.Security.Service;
 
-import com.app.portfolio.Security.Entity.User;
+import com.app.portfolio.Security.Entity.Usuario;
 import com.app.portfolio.Security.Repository.IUserRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserService {
     
-    @Autowired
+    @Autowired(required=false)
     IUserRepository iuserrepository;
     
-    public Optional<User> getByUsername(String username){
+    public Optional<Usuario> getByUsername(String username){
         return iuserrepository.findByUsername(username);
     }
     
@@ -29,7 +29,7 @@ public class UserService {
        return iuserrepository.existByEmail(email);
    }
    
-   public void save(User user){
+   public void save(Usuario user){
        iuserrepository.save(user);
    }
 }

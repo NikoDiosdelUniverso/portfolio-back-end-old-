@@ -1,5 +1,6 @@
 package com.app.portfolio.Security.Entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -11,34 +12,38 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-
-public class User {
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
    
+    @NotNull
     private String nombre;
     
+    @NotNull
     @Column (unique = true)
     private String username;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
     
     @ManyToMany (fetch = FetchType.EAGER)
     @JoinTable (name= "user role", joinColumns= @JoinColumn(name = "user_id"), inverseJoinColumns= @JoinColumn(name= "role_id"))
-    private Set<Role> roles= new HashSet<>();
+    private Set<Rol> roles= new HashSet<>();
 
-    public User() {
+    public Usuario() {
     }
 
-    public User(String nombre, String username, String email, String password) {
+    public Usuario(String nombre, String username, String email, String password) {
         this.nombre = nombre;
         this.username = username;
         this.email = email;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProyectosService implements IProyectosService{
 
-    @Autowired
+    @Autowired(required = false)
     public proyectosRepository proRepo;
     
     @Override

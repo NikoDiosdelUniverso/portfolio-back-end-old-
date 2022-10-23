@@ -1,6 +1,8 @@
 
 package com.app.portfolio.model;
 
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,17 +13,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Experiencia {
+public class Experiencia implements Serializable {
     
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
-    
+    @Column
     private String posicion;
+    @Column
     private String empresa;
+    @Column
     private String logo;
+    @Column
     private String inicio;
+    @Column
     private String fin;
+    @Column
     private String descripcion;
     
     public Experiencia() {

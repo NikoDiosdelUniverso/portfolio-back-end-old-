@@ -1,7 +1,7 @@
 
 package com.app.portfolio.Security.Service;
 
-import com.app.portfolio.Security.Entity.Role;
+import com.app.portfolio.Security.Entity.Rol;
 import com.app.portfolio.Security.Enums.RoleName;
 import com.app.portfolio.Security.Repository.IRoleRepository;
 import java.util.Optional;
@@ -13,14 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class RoleService {
     
-    @Autowired 
+    @Autowired(required = false)
     IRoleRepository iRoleRepository;
     
-    public Optional<Role> getByRoleName(RoleName rolName){
+    public Optional<Rol> getByRoleName(RoleName rolName){
         return iRoleRepository.findByRoleName(rolName);
     }
     
-    public void save(Role role) {
+    public void save(Rol role) {
         iRoleRepository.save(role);
     }
 }

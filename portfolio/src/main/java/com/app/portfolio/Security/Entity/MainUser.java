@@ -25,7 +25,7 @@ public class MainUser implements UserDetails {
         this.authorities = authorities;
     }
     
-    public static MainUser build (User user){
+    public static MainUser build (Usuario user){
         List<GrantedAuthority> authorities = user.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRoleName().name())).collect(Collectors.toList());
         return new MainUser(user.getNombre(),user.getUsername(),user.getPassword(), user.getEmail(), authorities);
     }
@@ -54,7 +54,7 @@ public class MainUser implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return true;
     }
 
     @Override

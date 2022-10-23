@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class EducacionService implements IEducacionservice{
 
-    @Autowired
+    @Autowired(required = false)
     public educacionRepository eduRepo;
     
     @Override

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExperienciaService implements IExperienciaService {
 
-    @Autowired
+    @Autowired(required=false)
     public experienciaRepository expRepo;
     
     @Override

@@ -4,8 +4,8 @@ package com.app.portfolio.Security.Controller;
 import com.app.portfolio.Security.Dto.JwtDto;
 import com.app.portfolio.Security.Dto.LoginUser;
 import com.app.portfolio.Security.Dto.NewUser;
-import com.app.portfolio.Security.Entity.Role;
-import com.app.portfolio.Security.Entity.User;
+import com.app.portfolio.Security.Entity.Rol;
+import com.app.portfolio.Security.Entity.Usuario;
 import com.app.portfolio.Security.Enums.RoleName;
 import com.app.portfolio.Security.JWT.JwtProvider;
 import com.app.portfolio.Security.Service.RoleService;
@@ -53,9 +53,9 @@ public class AuthController {
         if (userservice.existsByUsername(newuser.getEmail()))
             return new ResponseEntity(new Mensaje("El email de usuario ya esta en uso"), HttpStatus.BAD_REQUEST);
         
-        User usuario= new User(newuser.getNombre(), newuser.getUsername(), newuser.getEmail(), passwordencoder.encode(newuser.getPassword()));
+        Usuario usuario= new Usuario(newuser.getNombre(), newuser.getUsername(), newuser.getEmail(), passwordencoder.encode(newuser.getPassword()));
         
-        Set<Role> roles= new HashSet<>();
+        Set<Rol> roles= new HashSet<>();
         roles.add(roleservice.getByRoleName(RoleName.ROLE_USER).get());
         
         if (newuser.getRoles().contains("admin"))

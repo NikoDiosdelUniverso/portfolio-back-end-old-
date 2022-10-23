@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SkillsService implements ISkillsService {
 
-    @Autowired
+    @Autowired(required = false)
     public skillsRepository skillRepo;
     
     @Override

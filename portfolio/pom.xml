@@ -51,11 +51,6 @@
 	  <version>2.7.2</version>
 	 </dependency>
 	 <dependency>
-	  <groupId>com.h2database</groupId>
-	  <artifactId>h2</artifactId>
-	  <version>1.4.200</version>
-	 </dependency>
-	 <dependency>
 	  <groupId>javax.persistence</groupId>
 	  <artifactId>persistence-api</artifactId>
 	  <version>1.0-rev-1</version>
@@ -89,6 +84,41 @@
 	  <groupId>javax.validation</groupId>
 	  <artifactId>validation-api</artifactId>
 	  <version>2.0.1.Final</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.core</artifactId>
+	  <version>2.7.10</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.asm</artifactId>
+	  <version>9.2.0</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.antlr</artifactId>
+	  <version>2.7.10</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.jpa</artifactId>
+	  <version>2.7.10</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+	  <version>2.7.10</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>org.eclipse.persistence.moxy</artifactId>
+	  <version>2.7.10</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.eclipse.persistence</groupId>
+	  <artifactId>jakarta.persistence</artifactId>
+	  <version>2.2.3</version>
 	 </dependency>
 	</dependencies>
 
