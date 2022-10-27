@@ -10,33 +10,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(path="/edu")
 public class CEducacion {
 
     @Autowired(required=false)
     private IEducacionservice eduServ;
 
-    @PostMapping("/newedu")
+    @PostMapping("/new")
     public void agregarEducacion(@RequestBody Educacion edu) {
         eduServ.crearEducacion(edu);
     }
 
-    @GetMapping("/ver/educacion")
+    @GetMapping("/ver")
     @ResponseBody
     public List<Educacion> verEducacion() {
         return eduServ.verEducacion();
     }
 
-    @DeleteMapping("/deleteedu/{id}")
+    @DeleteMapping("/delete/{id}")
     public void borrarEducacion(@PathVariable Long id) {
         eduServ.borrarEducacion(id);
     }
 
-    @PutMapping("/edu/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Educacion editarEducacion(@PathVariable Long id,
             @RequestParam("Titulo") String nuevoTitulo,
             @RequestParam("Establecimiento") String nuevoEstablecimiento,

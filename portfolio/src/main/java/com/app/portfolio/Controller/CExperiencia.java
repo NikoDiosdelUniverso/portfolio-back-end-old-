@@ -12,33 +12,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(path="/exp")
 public class CExperiencia {
     
         @Autowired(required=false)
     private IExperienciaService expServ;
         
-                 @PostMapping("/newexp")
+                 @PostMapping("/new")
     public void agregarExperiencia(@RequestBody Experiencia exp) {
         expServ.crearExperiencia(exp);
     }
 
-    @GetMapping("/ver/experiencia")
+    @GetMapping("/ver")
     @ResponseBody
     public List<Experiencia> verExperiencia() {
         return expServ.verExperiencia();
     }
 
-    @DeleteMapping("/deleteexp/{id}")
+    @DeleteMapping("/delete/{id}")
     public void borrarExperiencia(@PathVariable Long id) {
         expServ.borrarExperiencia(id);
     }
 
-    @PutMapping("/exp/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Experiencia editarExperiencia(@PathVariable Long id,
             @RequestParam("posicion") String nuevoposicion,
             @RequestParam("empresa") String nuevoempresa,
